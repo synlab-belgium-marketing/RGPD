@@ -65,7 +65,7 @@ function submitQuiz() {
         if (currentQuiz < quizData.length) {
             loadQuiz();
         } else {
-            quiz.innerHTML = `<h3>Bien joué ! Vous avez répondu correctement à ${score}/${quizData.length} questions.</h3>`;
+            quiz.innerHTML = `<h3> Félicitations ! Vous avez terminé cette formation. Nous vous remercions pour votre engagement et votre participation. </h3>`
             submitBtn.style.display = 'none';
         }
     } else {
