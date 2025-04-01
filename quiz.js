@@ -75,22 +75,3 @@ function submitQuiz() {
         feedback.innerHTML = 'Réponse incorrecte, veuillez réessayer.';
     }
 }
-
-// Fonction pour afficher le pop-up si le quiz n'est pas complété
-function checkQuizCompletion(event) {
-    if (!quizCompleted && !quiz.contains(event.target)) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Attention',
-            text: 'Vous devez compléter le quiz pour finaliser cette formation.',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Le pop-up se ferme automatiquement après avoir cliqué sur "OK"
-            }
-        });
-    }
-}
-
-// Ajoute un écouteur d'événements pour détecter les clics en dehors du quiz
-document.addEventListener('click', checkQuizCompletion);
