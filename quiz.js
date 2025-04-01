@@ -84,6 +84,10 @@ function checkQuizCompletion(event) {
             title: 'Attention',
             text: 'Vous devez compléter le quiz pour finaliser cette formation.',
             confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Le pop-up se ferme automatiquement après avoir cliqué sur "OK"
+            }
         });
     }
 }
