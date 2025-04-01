@@ -1,3 +1,5 @@
+let quizCompleted = false; // Indicateur de complétion
+
 const quizData = [
 
     {
@@ -65,10 +67,21 @@ function submitQuiz() {
         if (currentQuiz < quizData.length) {
             loadQuiz();
         } else {
-            quiz.innerHTML = `<h3> Félicitations ! Vous avez terminé cette formation. Nous vous remercions pour votre engagement et votre participation. </h3>`
+            quiz.innerHTML = `<h3> Félicitations ! Vous avez terminé cette formation. Nous vous remercions pour votre engagement et votre participation. </h3>`;
             submitBtn.style.display = 'none';
+            quizCompleted = true; // Indicateur de complétion mis à jour
         }
     } else {
         feedback.innerHTML = 'Réponse incorrecte, veuillez réessayer.';
     }
 }
+
+// Fonction pour afficher le pop-up si le quiz n'est pas complétion
+function checkQuizCompletion(event) {
+    if (!quizCompleted && !quiz.contains(event.target)) {
+        alert("Attention, vous devez compléter le quiz pour finaliser cette formation.");
+    }
+}
+
+// Ajoute un écouteur d'événements pour détecter les clics en dehors du quiz
+document.addEventListener('click', checkQuizCompletion);
