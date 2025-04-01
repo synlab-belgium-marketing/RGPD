@@ -1,5 +1,7 @@
 let quizCompleted = false; // Indicateur de complétion
 
+<h2>Place au quiz ! </h2>
+
 const quizData = [
 
     {
