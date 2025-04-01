@@ -76,10 +76,15 @@ function submitQuiz() {
     }
 }
 
-// Fonction pour afficher le pop-up si le quiz n'est pas complétion
+// Fonction pour afficher le pop-up si le quiz n'est pas complété
 function checkQuizCompletion(event) {
     if (!quizCompleted && !quiz.contains(event.target)) {
-        alert("Attention, vous devez compléter le quiz pour finaliser cette formation.");
+        Swal.fire({
+            icon: 'warning',
+            title: 'Attention',
+            text: 'Vous devez compléter le quiz pour finaliser cette formation.',
+            confirmButtonText: 'OK'
+        });
     }
 }
 
