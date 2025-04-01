@@ -22,19 +22,15 @@
             height: 420px;
             margin: auto;
             overflow: hidden;
+            display: none; /* Masquer le contenu initialement */
         }
-        .container {
-            width: 595px;
-            height: 420px;
-            margin: auto;
-            overflow: hidden;
-        }
-        #ffffff; /* Couleur de fond blanche pour le contraste */
+        .quiz-container {
+            background: #ffffff; /* Couleur de fond blanche pour le contraste */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            height: 80%;
+            width: auto;
+            height: auto;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -47,6 +43,9 @@
             font-size: 1.2em;
             color: #003765; /* SYNLAB Darkblue */
             text-align: justify;
+            display: inline-block;
+            width: 100%;
+            word-wrap: break-word;
         }
         .options {
             list-style-type: none;
@@ -82,7 +81,7 @@
             border-radius: 5px;
             transition: background 0.3s;
             align-self: center;
-font-size: 1rem; 
+	font-size: 1rem; /* Taille du texte */
         }
         .submit-btn:hover {
             background: #002244;
@@ -98,9 +97,10 @@ font-size: 1rem;
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="quiz-container">
         <div class="quiz-container">
-                      <div id="quiz"></div>
+            <h2>Quiz SYNLAB - Formation RGPD</h2>
+            <div id="quiz"></div>
             <button class="submit-btn" onclick="submitQuiz()">Je valide ma réponse</button>
             <div id="feedback" class="feedback"></div>
         </div>
@@ -109,13 +109,14 @@ font-size: 1rem;
         document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
                 title: 'Place au quiz !',
-                html: 'Cliquez sur « Je suis prêt » pour commencer.',
+                html: 'Cliquez sur "Je suis prêt" pour commencer.',
                 showConfirmButton: true,
                 confirmButtonText: 'Je suis prêt',
-confirmButtonColor: '#003765',
+                confirmButtonColor: '#003765',
                 allowOutsideClick: false
             }).then((result) => {
                 if (result.isConfirmed) {
+                    document.getElementById('quiz-container').style.display = 'block'; // Afficher le contenu
                     loadQuizScript();
                 }
             });
