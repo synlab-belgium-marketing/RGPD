@@ -74,3 +74,5 @@ function submitQuiz() {
         feedback.innerHTML = 'Réponse incorrecte, veuillez réessayer.';
     }
 }
+
+document.addEventListener('DOMContentLoaded', loadQuiz);
