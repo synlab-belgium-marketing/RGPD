@@ -1,11 +1,9 @@
 let quizCompleted = false; // Indicateur de complétion
 
-<h2>Place au quiz ! </h2>
-
 const quizData = [
 
     {
-        question: "<br> 1. Quels sont les deux principaux objectifs du RGPD ?",
+        question: "1. Quels sont les deux principaux objectifs du RGPD ?",
         a: "Renforcer la protection des données personnelles des citoyens de l'UE.",
         b: "Permettre aux entreprises de vendre les données personnelles sans consentement.",
         c: "Harmoniser les règles de protection des données à travers l’UE.",
@@ -14,7 +12,7 @@ const quizData = [
     },
 
  {
-	question: "<br> 2. Parmi les propositions suivantes, lesquelles correspondent à des principes fondamentaux du RGPD ?",
+	question: "2. Parmi les propositions suivantes, lesquelles correspondent à des principes fondamentaux du RGPD ?",
         a: "Les données des patients doivent être conservées de façon sécurisée le plus longtemps possible.",
         b: "Éviter de collecter des données superflues.",
         c: "Les données doivent être collectées pour des finalités déterminées, explicites et légitimes.",
@@ -23,7 +21,7 @@ const quizData = [
 },
 
  {
-	question: "<br> 3. Identifiez deux droits des patients selon le RGPD :",
+	question: "3. Identifiez deux droits des patients selon le RGPD :",
         a: "Accéder à leurs données médicales personnelles.",
         b: "Obliger les médecins à partager leurs données avec des tiers sans consentement.",
         c: "Demander la rectification de leurs données médicales incorrectes.",
@@ -71,7 +69,6 @@ function submitQuiz() {
         } else {
             quiz.innerHTML = `Félicitations ! Vous avez terminé cette formation. <br> Nous vous remercions pour votre engagement et votre participation.`;
             submitBtn.style.display = 'none';
-            quizCompleted = true; // Indicateur de complétion mis à jour
         }
     } else {
         feedback.innerHTML = 'Réponse incorrecte, veuillez réessayer.';
