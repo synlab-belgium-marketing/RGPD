@@ -9,7 +9,7 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #ffffff;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,58 +17,58 @@
             align-items: center;
             height: 100vh;
         }
-    
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
         .quiz-container {
             background: #ffffff; /* Couleur de fond blanche pour le contraste */
-            padding: 10px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            height: 100%;
         }
         h2 {
-            font-size: 1em;
             color: #003765; /* SYNLAB Darkblue */
-            margin: 0;
         }
         .question {
-            font-size: 0.8em;
+            font-size: 1.2em;
             color: #003765; /* SYNLAB Darkblue */
         }
         .options {
             list-style-type: none;
             padding: 0;
-            font-size: 0.8em;
         }
         .options li {
-            margin: 5px 0;
+            margin: 10px 0;
             color: #003765; /* SYNLAB Darkblue */
         }
         .submit-btn {
             background: #003765; /* SYNLAB Darkblue */
             color: #fff;
             border: none;
-            padding: 5px 10px;
+            padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;
-            font-size: 0.8em;
         }
         .submit-btn:hover {
             background: #002244;
         }
         .feedback {
-            margin-top: 10px;
-            font-size: 0.8em;
+            margin-top: 20px;
+            font-size: 1em;
             color: red;
         }
     </style>
-  <body>
+</head>
+<body>
     <div class="container">
         <div class="quiz-container">
             <h2>Quiz SYNLAB - Formation RGPD</h2>
             <div id="quiz"></div>
-            <button class="submit-btn" onclick="submitQuiz()">Valider</button>
+            <button class="submit-btn" onclick="submitQuiz()">Soumettre</button>
             <div id="feedback" class="feedback"></div>
         </div>
     </div>
