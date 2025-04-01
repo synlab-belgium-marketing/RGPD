@@ -9,7 +9,7 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #ffffff;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,71 +18,80 @@
             height: 100vh;
         }
         .container {
-            width: 50%;
-            max-width: 550px;
- max-height: 420px;
+            width: 595px;
+            height: 420px;
             margin: auto;
             overflow: hidden;
         }
-        .quiz-container {
-            background: #ffffff; /* Couleur de fond blanche pour le contraste */
-            padding: 1rem;
+        .container {
+            width: 595px;
+            height: 420px;
+            margin: auto;
+            overflow: hidden;
+        }
+        #ffffff; /* Couleur de fond blanche pour le contraste */
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         h2 {
             color: #003765; /* SYNLAB Darkblue */
-            font-size: 1.5rem;
+            text-align: center;
         }
         .question {
-            font-size: 1.2rem;
+            font-size: 1.2em;
             color: #003765; /* SYNLAB Darkblue */
+            text-align: justify;
         }
         .options {
             list-style-type: none;
             padding: 0;
         }
         .options li {
-            margin: 0.5rem 0;
+            margin: 10px 0;
             color: #003765; /* SYNLAB Darkblue */
+            display: flex;
+            align-items: flex-start;
+        }
+        .options li label {
+            display: flex;
+            align-items: center;
+        }
+        .options li input[type="radio"],
+        .options li input[type="checkbox"] {
+            margin-right: 10px;
+            align-self: flex-start;
+        }
+        .options li span {
+            display: inline-block;
+            vertical-align: top;
+            line-height: 1.5;
+            text-align: justify;
         }
         .submit-btn {
             background: #003765; /* SYNLAB Darkblue */
             color: #fff;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;
-            font-size: 1rem;
+            align-self: center;
+font-size: 1rem; 
         }
         .submit-btn:hover {
             background: #002244;
         }
         .feedback {
-            margin-top: 1rem;
-            font-size: 1rem;
+            margin-top: 20px;
+            font-size: 1em;
             color: red;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                width: 100%;
-                padding: 0 1rem;
-            }
-            h2 {
-                font-size: 1.2rem;
-            }
-            .question {
-                font-size: 1rem;
-            }
-            .submit-btn {
-                font-size: 0.9rem;
-                padding: 0.5rem;
-            }
-            .feedback {
-                font-size: 0.9rem;
-            }
+            text-align: justify;
         }
     </style>
     <!-- Inclure SweetAlert -->
@@ -91,11 +100,44 @@
 <body>
     <div class="container">
         <div class="quiz-container">
-            <div id="quiz"></div>
-            <button class="submit-btn" onclick="submitQuiz()">Valider ma réponse</button>
+                      <div id="quiz"></div>
+            <button class="submit-btn" onclick="submitQuiz()">Je valide ma réponse</button>
             <div id="feedback" class="feedback"></div>
         </div>
     </div>
-    <script src="quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: 'Place au quiz !',
+                html: 'Cliquez sur « Je suis prêt » pour commencer.',
+                showConfirmButton: true,
+                confirmButtonText: 'Je suis prêt',
+confirmButtonColor: '#003765',
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    loadQuizScript();
+                }
+            });
+        });
+
+        function loadQuizScript() {
+            const script = document.createElement('script');
+            script.src = 'quiz.js';
+            script.onload = startQuiz;
+            document.head.appendChild(script);
+        }
+
+        function startQuiz() {
+            // Initialisation du quiz après le chargement du script
+            if (typeof initQuiz === 'function') {
+                initQuiz();
+            }
+        }
+
+        function submitQuiz() {
+            // Logique de soumission du quiz
+        }
+    </script>
 </body>
 </html>
