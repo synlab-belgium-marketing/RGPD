@@ -67,7 +67,7 @@ function submitQuiz() {
         if (currentQuiz < quizData.length) {
             loadQuiz();
         } else {
-            quiz.innerHTML = `<h3> Félicitations ! Vous avez terminé cette formation. Nous vous remercions pour votre engagement et votre participation. </h3>`;
+            quiz.innerHTML = `<p> Félicitations ! Vous avez terminé cette formation. <br> Nous vous remercions pour votre engagement et votre participation. </p>`;
             submitBtn.style.display = 'none';
             quizCompleted = true; // Indicateur de complétion mis à jour
         }
