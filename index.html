@@ -18,60 +18,74 @@
             height: 100vh;
         }
         .container {
-            width: 595px;
-            height: 420px;
+            width: 90%;
+            max-width: 600px;
             margin: auto;
             overflow: hidden;
         }
         .quiz-container {
             background: #ffffff; /* Couleur de fond blanche pour le contraste */
-            padding: 20px;
+            padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
         h2 {
             color: #003765; /* SYNLAB Darkblue */
-            text-align: center;
+            font-size: 1.5rem;
         }
         .question {
-            font-size: 1.2em;
+            font-size: 1.2rem;
             color: #003765; /* SYNLAB Darkblue */
-            text-align: justify;
         }
         .options {
             list-style-type: none;
             padding: 0;
         }
         .options li {
-            margin: 10px 0;
+            margin: 0.5rem 0;
             color: #003765; /* SYNLAB Darkblue */
-            text-align: justify;
         }
         .submit-btn {
             background: #003765; /* SYNLAB Darkblue */
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 0.5rem 1rem;
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s;
-            align-self: center;
+            font-size: 1rem;
         }
         .submit-btn:hover {
             background: #002244;
         }
         .feedback {
-            margin-top: 20px;
-            font-size: 1em;
+            margin-top: 1rem;
+            font-size: 1rem;
             color: red;
-            text-align: justify;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 0 1rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+            .question {
+                font-size: 1rem;
+            }
+            .submit-btn {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+            .feedback {
+                font-size: 0.9rem;
+            }
         }
     </style>
+    <!-- Inclure SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="container">
@@ -84,3 +98,4 @@
     </div>
     <script src="quiz.js"></script>
 </body>
+</html>
